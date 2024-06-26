@@ -1,0 +1,1 @@
+INSERT INTO DEPARTMENT (ID, NAME) VALUES (1, 'Recursos humanos'), (2, 'Tecnologia da informação'), (3, 'Financeiro'), (4, 'Marketing'), (5, 'Cobrança');
