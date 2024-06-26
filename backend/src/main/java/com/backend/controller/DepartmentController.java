@@ -1,5 +1,6 @@
 package com.backend.controller;
 
+import com.backend.controller.response.ApiErrorResponse;
 import com.backend.controller.response.DepartmentResponse;
 import com.backend.model.Department;
 import com.backend.service.impl.DepartmentService;
@@ -42,7 +43,15 @@ public class DepartmentController {
 			@ApiResponse(responseCode = "200", description = "Successfully retrieved list",
 					content = @Content(
 							mediaType = "application/json",
-							schema = @Schema(implementation = Department.class)))
+							schema = @Schema(implementation = Department.class))),
+			@ApiResponse(responseCode = "400", description = "Bad request", content = {
+					@Content(mediaType = "application/json", schema =
+					@Schema(implementation = ApiErrorResponse.class))
+			}),
+			@ApiResponse(responseCode = "500", description = "Internal server error", content = {
+					@Content(mediaType = "application/json", schema =
+					@Schema(implementation = ApiErrorResponse.class))
+			})
 	})
 	@GetMapping("/department")
 	public ResponseEntity<List<DepartmentResponse>> getAll() {

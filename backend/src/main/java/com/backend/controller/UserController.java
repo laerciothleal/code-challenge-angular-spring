@@ -1,7 +1,9 @@
 package com.backend.controller;
 
 import com.backend.controller.request.UserRequest;
+import com.backend.controller.response.ApiErrorResponse;
 import com.backend.controller.response.UserResponse;
+import com.backend.model.Department;
 import com.backend.model.User;
 import com.backend.service.impl.UserService;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -73,10 +75,18 @@ public class UserController {
      */
     @Operation(summary = "Get user by Id", description = "Retrieve a user by their Id")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Successfully retrieved user",
-                    content = @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = User.class))),
-            @ApiResponse(responseCode = "404", description = "User not found")
+            @ApiResponse(responseCode = "200", description = "Successfully retrieved list",
+                    content = @Content(
+                            mediaType = "application/json",
+                            schema = @Schema(implementation = Department.class))),
+            @ApiResponse(responseCode = "400", description = "Bad request", content = {
+                    @Content(mediaType = "application/json", schema =
+                    @Schema(implementation = ApiErrorResponse.class))
+            }),
+            @ApiResponse(responseCode = "500", description = "Internal server error", content = {
+                    @Content(mediaType = "application/json", schema =
+                    @Schema(implementation = ApiErrorResponse.class))
+            })
     })
     @GetMapping("/user/{id}")
     public ResponseEntity<UserResponse> getUserById(@Parameter(description = "Id of the user to retrieve") @PathVariable("id") long id) {
@@ -94,8 +104,17 @@ public class UserController {
     @Operation(summary = "Create a new user", description = "Create a new user with the provided details")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "201", description = "Successfully created user",
-                    content = @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = User.class)))
+                    content = @Content(
+                            mediaType = "application/json",
+                            schema = @Schema(implementation = Department.class))),
+            @ApiResponse(responseCode = "400", description = "Bad request", content = {
+                    @Content(mediaType = "application/json", schema =
+                    @Schema(implementation = ApiErrorResponse.class))
+            }),
+            @ApiResponse(responseCode = "500", description = "Internal server error", content = {
+                    @Content(mediaType = "application/json", schema =
+                    @Schema(implementation = ApiErrorResponse.class))
+            })
     })
     @PostMapping("/user")
     public ResponseEntity<UserResponse> createUser(@Parameter(description = "User object to create") @RequestBody UserRequest userRequest) {
@@ -113,9 +132,17 @@ public class UserController {
     @Operation(summary = "Update a user", description = "Update an existing user by their Id")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Successfully updated user",
-                    content = @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = User.class))),
-            @ApiResponse(responseCode = "404", description = "User not found")
+                            content = @Content(
+                                    mediaType = "application/json",
+                                    schema = @Schema(implementation = Department.class))),
+            @ApiResponse(responseCode = "400", description = "Bad request", content = {
+                    @Content(mediaType = "application/json", schema =
+                    @Schema(implementation = ApiErrorResponse.class))
+            }),
+            @ApiResponse(responseCode = "500", description = "Internal server error", content = {
+                    @Content(mediaType = "application/json", schema =
+                    @Schema(implementation = ApiErrorResponse.class))
+            })
     })
     @PutMapping("/user/{id}")
     public ResponseEntity<UserResponse> updateUser(@Parameter(description = "Id of the user to update") @PathVariable("id") long id,
@@ -132,8 +159,18 @@ public class UserController {
      */
     @Operation(summary = "Delete a user by Id", description = "Delete a user by their Id")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "204", description = "Successfully deleted user"),
-            @ApiResponse(responseCode = "404", description = "User not found")
+            @ApiResponse(responseCode = "204", description = "Successfully deleted user",
+                    content = @Content(
+                            mediaType = "application/json",
+                            schema = @Schema(implementation = Department.class))),
+            @ApiResponse(responseCode = "400", description = "Bad request", content = {
+                    @Content(mediaType = "application/json", schema =
+                    @Schema(implementation = ApiErrorResponse.class))
+            }),
+            @ApiResponse(responseCode = "500", description = "Internal server error", content = {
+                    @Content(mediaType = "application/json", schema =
+                    @Schema(implementation = ApiErrorResponse.class))
+            })
     })
     @DeleteMapping("/user/{id}")
     public ResponseEntity<HttpStatus> deleteById(@Parameter(description = "Id of the user to delete") @PathVariable("id") long id) {
@@ -149,7 +186,18 @@ public class UserController {
      */
     @Operation(summary = "Delete all users", description = "Delete all users in the system")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "204", description = "Successfully deleted all users")
+            @ApiResponse(responseCode = "204", description = "Successfully deleted all users",
+                    content = @Content(
+                            mediaType = "application/json",
+                            schema = @Schema(implementation = Department.class))),
+            @ApiResponse(responseCode = "400", description = "Bad request", content = {
+                    @Content(mediaType = "application/json", schema =
+                    @Schema(implementation = ApiErrorResponse.class))
+            }),
+            @ApiResponse(responseCode = "500", description = "Internal server error", content = {
+                    @Content(mediaType = "application/json", schema =
+                    @Schema(implementation = ApiErrorResponse.class))
+            })
     })
     @DeleteMapping("/user")
     public ResponseEntity<HttpStatus> deleteAllUsers() {
