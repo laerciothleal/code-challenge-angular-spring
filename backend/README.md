@@ -37,13 +37,13 @@ Ele demonstra como consumir APIs REST, exibir dados e realizar várias operaçõ
 ### Swagger
 Acessar a URL `http://localhost:8080/swagger-ui/index.html`
 
-<img src="db-demo.gif" alt="gif" width="900" height="500">
+<img src="swagger-img.png" alt="gif" width="900" height="500">
 
 #### Acessar Console Banco de dados H2
 H2 console `http://localhost:8080/h2/login.jsp`
 
 #### GIF H2
-<img src="db-demo.gif" alt="gif" width="900" height="500">
+<img src="h2.gif" alt="gif" width="900" height="500">
 
 
 
