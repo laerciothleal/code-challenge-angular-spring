@@ -3,7 +3,7 @@ package com.backend.test;
 import com.backend.controller.UserController;
 import com.backend.controller.response.UserResponse;
 import com.backend.model.User;
-import com.backend.service.UserService;
+import com.backend.service.impl.UserService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -12,7 +12,6 @@ import org.mockito.MockitoAnnotations;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
 

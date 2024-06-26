@@ -2,7 +2,7 @@ package com.backend.controller;
 
 import com.backend.controller.response.DepartmentResponse;
 import com.backend.model.Department;
-import com.backend.service.DepartmentService;
+import com.backend.service.impl.DepartmentService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jdk8.Jdk8Module;
 import io.swagger.v3.oas.annotations.Operation;

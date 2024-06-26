@@ -3,7 +3,7 @@ package com.backend.test;
 import com.backend.model.Department;
 import com.backend.model.User;
 import com.backend.repository.UserRepository;
-import com.backend.service.UserService;
+import com.backend.service.impl.UserService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;

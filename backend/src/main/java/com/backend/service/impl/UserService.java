@@ -1,7 +1,8 @@
-package com.backend.service;
+package com.backend.service.impl;
 
 import com.backend.model.User;
 import com.backend.repository.UserRepository;
+import com.backend.service.UserImpl;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -12,7 +13,7 @@ import java.util.Optional;
 @Service
 @Slf4j
 @RequiredArgsConstructor
-public class UserService {
+public class UserService implements UserImpl {
 
     private final UserRepository userRepository;
 
