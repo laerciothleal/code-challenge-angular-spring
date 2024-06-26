@@ -1,5 +1,5 @@
 ### CRUD com Angular 17 e Java/Spring Boot 
-Esse é a pasta raíz dos dois projetos, entrar em cada projeto para ver suas respectivas configurações.
+Esta é a pasta raíz dos dois projetos, entrar em cada projeto para ver suas respectivas configurações.
 
 #### Executar frontend e backend juntos usando docker compose.
 ```
