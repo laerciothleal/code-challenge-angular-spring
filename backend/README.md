@@ -45,5 +45,12 @@ H2 console `http://localhost:8080/h2/login.jsp`
 #### GIF H2
 <img src="h2.gif" alt="gif" width="900" height="500">
 
+### Executar testes
+`mvn clean test`
+
+Uma outra forma de executar é usando o Intellij e ver a cobertura de testes
+
+<img src="tests.gif" alt="gif" width="900" height="500">
+
 
 
