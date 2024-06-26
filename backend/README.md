@@ -32,7 +32,7 @@ Ele demonstra como consumir APIs REST, exibir dados e realizar várias operaçõ
 - Funcionalidade de Busca: Uma barra de pesquisa para encontrar usuários pelo nome.
 
 ### Executar apenas o backend, caso deseje
-`mvn spring-boot:run`. Usar o link `http://localhost:8081/user`
+`mvn spring-boot:run`.
 
 ### Swagger
 Acessar a URL `http://localhost:8080/swagger-ui/index.html`
