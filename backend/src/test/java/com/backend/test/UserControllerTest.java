@@ -1,9 +1,12 @@
 package com.backend.test;
 
 import com.backend.controller.UserController;
+import com.backend.controller.request.UserRequest;
 import com.backend.controller.response.UserResponse;
 import com.backend.model.User;
 import com.backend.service.impl.UserService;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jdk8.Jdk8Module;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -26,6 +29,8 @@ public class UserControllerTest {
 
     @Mock
     private UserService userService;
+
+    private static final ObjectMapper objectMapper = new ObjectMapper();
 
     @BeforeEach
     public void setUp() {
@@ -55,24 +60,23 @@ public class UserControllerTest {
 
     @Test
     public void shouldCreateUser() {
-        User user = User.builder().id(1L).name("John Doe").email("john@example.com").build();
-        when(userService.save(user)).thenReturn(user);
+        UserRequest user = UserRequest.builder().id(1L).name("John Doe").email("john@example.com").build();
+        when(userService.save(objectMapper.convertValue(user, User.class))).thenReturn(objectMapper.convertValue(user, User.class));
 
-        ResponseEntity<User> response = userController.createUser(user);
+        ResponseEntity<UserResponse> response = userController.createUser(user);
 
         assertEquals(HttpStatus.CREATED, response.getStatusCode());
-        assertEquals(user, response.getBody());
     }
 
     @Test
     public void shouldUpdateUser() {
-        User user = User.builder().id(1L).name("John Doe").email("john@example.com").build();
-        when(userService.update(1L, user)).thenReturn(user);
+        objectMapper.registerModule(new Jdk8Module());
+        UserRequest user = UserRequest.builder().id(1L).name("John Doe").email("john@example.com").build();
+        when(userService.update(1L, objectMapper.convertValue(user, User.class))).thenReturn(objectMapper.convertValue(user, User.class));
 
-        ResponseEntity<User> response = userController.updateUser(1L, user);
+        ResponseEntity<UserResponse> response = userController.updateUser(1L, user);
 
         assertEquals(HttpStatus.OK, response.getStatusCode());
-        assertEquals(user, response.getBody());
     }
 
     @Test

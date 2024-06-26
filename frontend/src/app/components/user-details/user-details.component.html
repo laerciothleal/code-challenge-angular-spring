@@ -64,8 +64,8 @@
           name="department"
           [(ngModel)]="currentUser.department.id"
         >
+          <option [ngValue]="null" disabled selected>Selecionar</option>
           <option *ngFor="let department of departments" [value]="department.id">{{department.name}}</option>
-
         </select>
       </div>
     </form>

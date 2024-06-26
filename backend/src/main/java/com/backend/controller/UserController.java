@@ -1,5 +1,6 @@
 package com.backend.controller;
 
+import com.backend.controller.request.UserRequest;
 import com.backend.controller.response.UserResponse;
 import com.backend.model.User;
 import com.backend.service.impl.UserService;
@@ -87,7 +88,7 @@ public class UserController {
     /**
      * Creates a new user.
      *
-     * @param user The User object to create.
+     * @param userRequest The UserRequest object to create.
      * @return ResponseEntity containing the created User object.
      */
     @Operation(summary = "Create a new user", description = "Create a new user with the provided details")
@@ -97,16 +98,16 @@ public class UserController {
                             schema = @Schema(implementation = User.class)))
     })
     @PostMapping("/user")
-    public ResponseEntity<User> createUser(@Parameter(description = "User object to create") @RequestBody User user) {
+    public ResponseEntity<UserResponse> createUser(@Parameter(description = "User object to create") @RequestBody UserRequest userRequest) {
         objectMapper.registerModule(new Jdk8Module());
-        return new ResponseEntity<>(userService.save(user), HttpStatus.CREATED);
+        return new ResponseEntity<>((objectMapper.convertValue(userService.save(objectMapper.convertValue(userRequest, User.class)), UserResponse.class)), HttpStatus.CREATED);
     }
 
     /**
      * Updates an existing user by their Id.
      *
-     * @param id   The Id of the user to update.
-     * @param user The User object with updated information.
+     * @param id    The Id of the user to update.
+     * @param userRequest The User object with updated information.
      * @return ResponseEntity containing the updated User object.
      */
     @Operation(summary = "Update a user", description = "Update an existing user by their Id")
@@ -117,10 +118,10 @@ public class UserController {
             @ApiResponse(responseCode = "404", description = "User not found")
     })
     @PutMapping("/user/{id}")
-    public ResponseEntity<User> updateUser(@Parameter(description = "Id of the user to update") @PathVariable("id") long id,
-                                           @Parameter(description = "Updated user object") @RequestBody User user) {
+    public ResponseEntity<UserResponse> updateUser(@Parameter(description = "Id of the user to update") @PathVariable("id") long id,
+                                           @Parameter(description = "Updated user object") @RequestBody UserRequest userRequest) {
         objectMapper.registerModule(new Jdk8Module());
-        return new ResponseEntity<>(userService.update(id, user), HttpStatus.OK);
+        return new ResponseEntity<>(objectMapper.convertValue(userService.update(id, objectMapper.convertValue(userRequest, User.class)), UserResponse.class), HttpStatus.OK);
     }
 
     /**

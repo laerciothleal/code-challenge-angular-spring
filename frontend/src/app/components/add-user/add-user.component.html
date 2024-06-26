@@ -46,6 +46,7 @@
             name="departamento"
             [(ngModel)]="user.department"
           >
+            <option [ngValue]="null" disabled selected>Selecionar</option>
             <option *ngFor="let department of departments" [ngValue]="department">{{department.name}}</option>
           </select>
         </div>
