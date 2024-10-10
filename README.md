@@ -1,17 +1,18 @@
-### CRUD com Angular 17 e Java/Spring Boot 
-Esta é a pasta raíz dos dois projetos, entrar em cada projeto para ver suas respectivas configurações.
+### CRUD with Angular 17 and Java17 / Spring Boot 3.3.1
+This is the root folder for both projects. Enter each project to see their respective configurations.
 
-#### Executar frontend e backend juntos usando docker compose.
+#### Run frontend and backend together using Docker Compose.
 ```
 docker-compose build 
 ```
+
 ```
 docker-compose up
 ```
 
 <img src="project-run.gif" alt="gif" width="800" height="500">
 
-#### Spring Boot vai usar a porta `8080` e o Angular a porta `8081`.
+#### Spring Boot will use port `8080` and Angular will use port`8081`.
 
 frontend `http://localhost:8081/user`
 
