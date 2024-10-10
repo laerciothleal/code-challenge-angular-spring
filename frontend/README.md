@@ -1,19 +1,19 @@
-### Aplicação CRUD com Angular e Java Spring Framework
-Este projeto é uma aplicação CRUD (Criar, Ler, Atualizar, Excluir) abrangente construída com Angular 17 para o frontend e Java com o Spring Framework para o backend.
-Ele demonstra como consumir APIs REST, exibir dados e realizar várias operações em dados de usuários.
+### CRUD Application with Angular and Java Spring Framework
 
-### Funcionalidades
+This project is a comprehensive CRUD (Create, Read, Update, Delete) application built with Angular 17 for the frontend and Java with the Spring Framework for the backend. It demonstrates how to consume REST APIs, display data, and perform various operations on user data.
 
-- Gestão de Usuários: Cada usuário tem um Id, nome, sobrenome e departamento.
-- Funcionalidade de Busca: Uma barra de pesquisa para encontrar usuários pelo nome.
+### Features
 
-Crie um exemplo de aplicativo CRUD com Angular 17 para consumir APIs REST, exibir, modificar e buscar dados de Usuários.
+- **User Management**: Each user has an ID, first name, last name, and department.
+- **Search Functionality**: A search bar to find users by name.
 
-### Executar apenas o frontend, caso deseje
-> Run `ng serve --port 8081` to run without docker-compose.yml. Navigate to `http://localhost:8081/user`.
+Create a sample CRUD application with Angular 17 to consume REST APIs, display, modify, and search user data.
+
+### Running only the frontend, if desired
+> Run `ng serve --port 8081` to run without `docker-compose.yml`. Navigate to `http://localhost:8081/user`.
 
 <br/>
 
-#### CRUD em gif
+#### CRUD in GIF
 
-<img src="crud.gif" alt="gif" width="700" height="600">
+![CRUD GIF](crud.gif)
