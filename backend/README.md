@@ -1,54 +1,51 @@
 ## Spring Boot Application
 
-Aplicação backend de CRUD (Criar, Ler, Atualizar, Excluir) que gerencia usuários e seus departamentos associados. 
-É desenvolvido em Java 17 e SpringFramework. 
+Backend CRUD (Create, Read, Update, Delete) application that manages users and their associated departments. It is developed in Java 17 and the Spring Framework.
 
-### Dependências 
-- `spring-boot-starter`: O iniciador principal que inclui suporte para configuração automática, registro e configuração YAML.
-- `spring-boot-starter-web`: Constrói aplicativos da web, incluindo RESTful, usando Spring MVC. Usa Tomcat como contêiner incorporado padrão.
-- `spring-boot-starter-data-jpa`: Fornece suporte JPA e Spring Data JPA para o aplicativo.
-- `spring-boot-starter-test`: Fornece bibliotecas de teste, incluindo JUnit, e Mockito.
+### Dependencies
+- `spring-boot-starter`: The main starter that includes support for auto-configuration, logging, and YAML configuration.
+- `spring-boot-starter-web`: Builds web applications, including RESTful services, using Spring MVC. It uses Tomcat as the default embedded container.
+- `spring-boot-starter-data-jpa`: Provides JPA and Spring Data JPA support for the application.
+- `spring-boot-starter-test`: Provides testing libraries, including JUnit and Mockito.
 
-### Banco de dados e ORM
-- `Banco de dados H2`: um banco de dados leve e integrado, perfeito para desenvolvimento e teste.
-- `Liquibase`: uma biblioteca de gerenciamento de alterações de esquema de banco de dados que ajuda a rastrear, versionar e implantar alterações de banco de dados.
+### Database and ORM
+- `H2 Database`: A lightweight, embedded database perfect for development and testing.
+- `Liquibase`: A database schema change management library that helps track, version, and deploy database changes.
 
-### Documentação da API
-- `swagger-annotations`: Anotações para documentar sua API em um formato legível por máquina.
-- `springdoc-openapi-starter-webmvc-ui`: Integra OpenAPI 3 com Spring Boot para gerar documentação de API interativa.
+### API Documentation
+- `swagger-annotations`: Annotations for documenting your API in a machine-readable format.
+- `springdoc-openapi-starter-webmvc-ui`: Integrates OpenAPI 3 with Spring Boot to generate interactive API documentation.
 
-### Serviços de utilidade pública
-- `Lombok`: uma biblioteca que ajuda a reduzir o código clichê gerando getters, setters e outros métodos comuns em tempo de compilação.
-- `jackson-datatype-jdk8`: Suporte para tipos de dados Java 8 em Jackson.
+### Utility Libraries
+- `Lombok`: A library that helps reduce boilerplate code by generating getters, setters, and other common methods at compile time.
+- `jackson-datatype-jdk8`: Support for Java 8 data types in Jackson.
 
+### Application using Java 17 and Spring Framework
+This project is a comprehensive CRUD (Create, Read, Update, Delete) application built with Angular 17 for the frontend and Java with the Spring Framework for the backend. It demonstrates how to consume REST APIs, display data, and perform various operations on user data.
 
-### Aplicação usando Java-17 e SpringFramework
-Este projeto é uma aplicação CRUD (Criar, Ler, Atualizar, Excluir) abrangente construída com Angular 17 para o frontend e Java com o Spring Framework para o backend.
-Ele demonstra como consumir APIs REST, exibir dados e realizar várias operações em dados de usuários.
+### Features
 
-### Funcionalidades
+- **User Management**: Each user has an ID, first name, last name, and department.
+- **Search Functionality**: A search bar to find users by name.
 
-- Gestão de Usuários: Cada usuário tem um Id, nome, sobrenome e departamento.
-- Funcionalidade de Busca: Uma barra de pesquisa para encontrar usuários pelo nome.
-
-### Executar apenas o backend, caso deseje
-`mvn spring-boot:run`.
+### Running only the backend, if desired
+```bash mvn spring-boot:run```
 
 ### Swagger
-Acessar a URL `http://localhost:8080/swagger-ui/index.html`
+Access the URL: `http://localhost:8080/swagger-ui/index.html`
 
 <img src="swagger-img.png" alt="gif" width="900" height="500">
 
-#### Acessar Console Banco de dados H2
+#### Access H2 Database Console
 H2 console `http://localhost:8080/h2/login.jsp`
 
 #### GIF H2
 <img src="h2.gif" alt="gif" width="900" height="500">
 
-### Executar testes
+### Running Tests
 `mvn clean test`
 
-Uma outra forma de executar é usando o Intellij e ver a cobertura de testes
+Another way to run tests is by using IntelliJ and viewing test coverage.
 
 <img src="tests.gif" alt="gif" width="900" height="500">
 
