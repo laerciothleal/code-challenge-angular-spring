@@ -7,7 +7,7 @@ COPY . .
 RUN npm run build
 
 # Stage 2
-FROM nginx:alpine
+FROM nginx:1.29.5-alpine3.23
 
 COPY --from=build /app/dist/angular-17-crud/browser /usr/share/nginx/html
 
